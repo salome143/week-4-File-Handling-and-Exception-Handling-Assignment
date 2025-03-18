@@ -1,0 +1,48 @@
+The program should:
+Reads from an existing file.
+Modifies its contents (e.g., converts text to uppercase, removes whitespace, or replaces words).
+Writes the modified content to a new file.
+
+# File Read & Write Challenge
+try:
+    # Open the source file in read mode
+    with open("input.txt", "r") as file:
+        content = file.readlines()
+
+    # Modify the content (convert to uppercase)
+    modified_content = [line.upper() for line in content]
+
+    # Write to a new file
+    with open("output.txt", "w") as file:
+        file.writelines(modified_content)
+
+    print("File has been modified and saved as 'output.txt'.")
+
+except FileNotFoundError:
+    print("Error: The file 'input.txt' was not found.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+
+Error Handling Lab
+The program should:
+
+Ask the user for a filename to open.
+Handle errors like file not found or permission issue
+
+# Error Handling Lab
+filename = input("Enter the filename: ")
+
+try:
+    with open(filename, "r") as file:
+        content = file.read()
+        print("\nFile Content:\n")
+        print(content)
+
+except FileNotFoundError:
+    print(f"Error: The file '{filename}' does not exist.")
+except PermissionError:
+    print(f"Error: You don't have permission to read '{filename}'.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
